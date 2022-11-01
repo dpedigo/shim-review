@@ -17,9 +17,12 @@ Confirm the following are included in your repo, checking each box:
 -------------------------------------------------------------------------------
 ### What is the SHA256 hash of your final SHIM binary?
 -------------------------------------------------------------------------------
-[your text here]
+```
+c4d23d282761c419c3fe5166a8b5a9e90490b12a0904632ebc893bf77db1111c  shimia32.efi
+68178ef56f5897b0d3e7e86c85d4c06276e3dbc2fe5adbe64f95f1675d57abe7  shimx64.efi
+```
 
 -------------------------------------------------------------------------------
 ### What is the link to your previous shim review request (if any, otherwise N/A)?
 -------------------------------------------------------------------------------
-[your text here]
+https://github.com/rhboot/shim-review/issues/9
