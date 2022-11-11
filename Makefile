@@ -6,4 +6,7 @@ build:
 output:
 	docker run -u $(shell id -u):$(shell id -g) -v $(shell pwd):/host ${TAG} cp -r /build/output/ /host
 
-.PHONY: build output
+print-cert:
+	openssl x509 -inform der -in blancco_sb_2022.cer -noout -text
+
+.PHONY: build output print-cert

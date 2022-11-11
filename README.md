@@ -168,8 +168,8 @@ Previous submission: https://github.com/rhboot/shim-review/issues/9
 ### What is the SHA256 hash of your final SHIM binary?
 -------------------------------------------------------------------------------
 ```
-c4d23d282761c419c3fe5166a8b5a9e90490b12a0904632ebc893bf77db1111c  shimia32.efi
-68178ef56f5897b0d3e7e86c85d4c06276e3dbc2fe5adbe64f95f1675d57abe7  shimx64.efi
+c02d776c948d50ed83b33e9a9e69be4b4c625eebbbd9d6e454eb2aa0ac2b920f  shimia32.efi
+71d0f84a5875b88e7d18dd6d8f621677e7fc027fd2b112d5679b42d3c578cd60  shimx64.efi
 ```
 
 -------------------------------------------------------------------------------

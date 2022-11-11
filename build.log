@@ -1,17 +1,17 @@
 docker build --no-cache -t shim-builder .
-Sending build context to Docker daemon   1.83MB
+Sending build context to Docker daemon  2.715MB
 Step 1/19 : FROM ubuntu:jammy
  ---> cdb68b455a14
 Step 2/19 : ARG SHIM_URL="https://github.com/rhboot/shim/releases/download/15.6/shim-15.6.tar.bz2"
- ---> Running in 30a0a82de729
-Removing intermediate container 30a0a82de729
- ---> 7d66d43669c5
+ ---> Running in 36546fac949f
+Removing intermediate container 36546fac949f
+ ---> 00620b3c7a62
 Step 3/19 : ARG SHIM_HASH="eab91644a3efe91a666399f5d8eb3eed0e04d04f79d4b6c0b278ef7747a239a5 shim-15.6.tar.bz2"
- ---> Running in 050c718ccd98
-Removing intermediate container 050c718ccd98
- ---> 6291b2cf0680
+ ---> Running in 5df97eb18e7f
+Removing intermediate container 5df97eb18e7f
+ ---> 03df742858ba
 Step 4/19 : RUN apt-get -qq update && DEBIAN_FRONTEND=noninteractive apt-get -qq --no-install-recommends install build-essential ca-certificates curl
- ---> Running in f56d3cf05033
+ ---> Running in fe1f3278440d
 [91mdebconf: delaying package configuration, since apt-utils is not installed
 [0mSelecting previously unselected package perl-modules-5.34.
 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4395 files and directories currently installed.)
@@ -30,8 +30,8 @@ Selecting previously unselected package perl.
 Preparing to unpack .../04-perl_5.34.0-3ubuntu1.1_amd64.deb ...
 Unpacking perl (5.34.0-3ubuntu1.1) ...
 Selecting previously unselected package openssl.
-Preparing to unpack .../05-openssl_3.0.2-0ubuntu1.6_amd64.deb ...
-Unpacking openssl (3.0.2-0ubuntu1.6) ...
+Preparing to unpack .../05-openssl_3.0.2-0ubuntu1.7_amd64.deb ...
+Unpacking openssl (3.0.2-0ubuntu1.7) ...
 Selecting previously unselected package ca-certificates.
 Preparing to unpack .../06-ca-certificates_20211016_all.deb ...
 Unpacking ca-certificates (20211016) ...
@@ -233,7 +233,7 @@ Setting up libcrypt-dev:amd64 (1:4.4.27-1) ...
 Setting up libbinutils:amd64 (2.38-4ubuntu2) ...
 Setting up libisl23:amd64 (0.24-2build1) ...
 Setting up libc-dev-bin (2.35-0ubuntu3.1) ...
-Setting up openssl (3.0.2-0ubuntu1.6) ...
+Setting up openssl (3.0.2-0ubuntu1.7) ...
 Setting up libcc1-0:amd64 (12.1.0-2ubuntu1~22.04) ...
 Setting up liblsan0:amd64 (12.1.0-2ubuntu1~22.04) ...
 Setting up libitm1:amd64 (12.1.0-2ubuntu1~22.04) ...
@@ -271,23 +271,23 @@ Updating certificates in /etc/ssl/certs...
 0 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...
 done.
-Removing intermediate container f56d3cf05033
- ---> f9cef6da6a47
+Removing intermediate container fe1f3278440d
+ ---> 7a0b7dd9f4fc
 Step 5/19 : WORKDIR /build
- ---> Running in f7362ad55834
-Removing intermediate container f7362ad55834
- ---> 1bd49a6034a1
+ ---> Running in 90dda166dddf
+Removing intermediate container 90dda166dddf
+ ---> b9467869431c
 Step 6/19 : RUN curl --silent --location --remote-name ${SHIM_URL}
- ---> Running in eb0202a3dfd0
-Removing intermediate container eb0202a3dfd0
- ---> d7412604c45c
+ ---> Running in d0e1954bd14d
+Removing intermediate container d0e1954bd14d
+ ---> 5aa8e0c558f3
 Step 7/19 : RUN echo "${SHIM_HASH}" | sha256sum --check
- ---> Running in 2c1834b48089
+ ---> Running in b55f4beed799
 shim-15.6.tar.bz2: OK
-Removing intermediate container 2c1834b48089
- ---> 5bd0f946be79
+Removing intermediate container b55f4beed799
+ ---> f2e023f538d5
 Step 8/19 : RUN tar -jxvpf $(basename ${SHIM_URL}) && rm $(basename ${SHIM_URL})
- ---> Running in 3c06290c67f7
+ ---> Running in 57e4070cc1c3
 shim-15.6/
 shim-15.6/commit
 shim-15.6/version.h
@@ -1361,22 +1361,22 @@ shim-15.6/gnu-efi/Make.defaults
 shim-15.6/gnu-efi/ChangeLog
 shim-15.6/gnu-efi/.gitignore
 shim-15.6/gnu-efi/.gitattributes
-Removing intermediate container 3c06290c67f7
- ---> b27b648605db
+Removing intermediate container 57e4070cc1c3
+ ---> 6dcdd3ec5672
 Step 9/19 : WORKDIR /build/shim-15.6
- ---> Running in f6aea17008f8
-Removing intermediate container f6aea17008f8
- ---> 91c6bb7f3acf
+ ---> Running in 7c8b2152a17d
+Removing intermediate container 7c8b2152a17d
+ ---> 9491c6a1955a
 Step 10/19 : ADD blancco_sb_2022.cer .
- ---> d34e26d376f2
+ ---> a7fda64d367c
 Step 11/19 : ADD sbat.csv data/sbat.csv
- ---> 6ba3b2ac322a
+ ---> a5851b11aac7
 Step 12/19 : RUN mkdir build-x64 build-ia32
- ---> Running in 306f7310ff30
-Removing intermediate container 306f7310ff30
- ---> eccc249e82b7
+ ---> Running in db46fbe1569f
+Removing intermediate container db46fbe1569f
+ ---> e0519bc28f99
 Step 13/19 : RUN make -C build-x64 ARCH=x86_64 VENDOR_CERT_FILE=../blancco_sb_2022.cer DEFAULT_LOADER=\\\\grub.efi TOPDIR=.. -f ../Makefile
- ---> Running in e39cf045d95e
+ ---> Running in 9f7a28b05716
 make: Entering directory '/build/shim-15.6/build-x64'
 sed	-e "s,@@VERSION@@,15.6," \
 	-e "s,@@UNAME@@,Linux x86_64 x86_64 x86_64 GNU/Linux," \
@@ -1998,10 +1998,10 @@ objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	--target efi-app-x86_64 fbx64.so fbx64.efi
 ./post-process-pe -vv fbx64.efi
 make: Leaving directory '/build/shim-15.6/build-x64'
-Removing intermediate container e39cf045d95e
- ---> 2a295fc1fdd4
+Removing intermediate container 9f7a28b05716
+ ---> c66d41cc11cb
 Step 14/19 : RUN make -C build-ia32 ARCH=ia32 VENDOR_CERT_FILE=../blancco_sb_2022.cer DEFAULT_LOADER=\\\\grub.efi TOPDIR=.. -f ../Makefile
- ---> Running in 261301a28346
+ ---> Running in deb762533042
 make: Entering directory '/build/shim-15.6/build-ia32'
 sed	-e "s,@@VERSION@@,15.6," \
 	-e "s,@@UNAME@@,Linux x86_64 x86_64 x86_64 GNU/Linux," \
@@ -2624,22 +2624,22 @@ objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	--target efi-app-ia32 fbia32.so fbia32.efi
 ./post-process-pe -vv fbia32.efi
 make: Leaving directory '/build/shim-15.6/build-ia32'
-Removing intermediate container 261301a28346
- ---> 3ae310d52f89
+Removing intermediate container deb762533042
+ ---> 1451b65b1227
 Step 15/19 : RUN mkdir /build/output
- ---> Running in 44bade2bbcdb
-Removing intermediate container 44bade2bbcdb
- ---> cdec0c687460
+ ---> Running in 1c05f435b371
+Removing intermediate container 1c05f435b371
+ ---> 90344aafe986
 Step 16/19 : RUN cp build-x64/shimx64.efi /build/output
- ---> Running in eb5614c68793
-Removing intermediate container eb5614c68793
- ---> e4485a8b1708
+ ---> Running in c714a3d7f26f
+Removing intermediate container c714a3d7f26f
+ ---> cea11a5816d2
 Step 17/19 : RUN cp build-ia32/shimia32.efi /build/output
- ---> Running in 3429a003d682
-Removing intermediate container 3429a003d682
- ---> 2d35caf0a246
+ ---> Running in 390d7041e23f
+Removing intermediate container 390d7041e23f
+ ---> bc6accbdc786
 Step 18/19 : RUN objdump -j .sbat -s /build/output/*
- ---> Running in a0c7f9bdc0d5
+ ---> Running in d65fd1ef55bf
 
 /build/output/shimia32.efi:     file format pei-i386
 
@@ -2674,13 +2674,13 @@ Contents of section .sbat:
  d40a0 6c6f6779 2047726f 75702c73 68696d2c  logy Group,shim,
  d40b0 31352e36 2c6d6169 6c3a7365 63757269  15.6,mail:securi
  d40c0 74794062 6c616e63 636f2e63 6f6d      ty@blancco.com  
-Removing intermediate container a0c7f9bdc0d5
- ---> 076434da495c
+Removing intermediate container d65fd1ef55bf
+ ---> 26969864ac5d
 Step 19/19 : RUN sha256sum /build/output/*
- ---> Running in 2db9a7eb5982
-c4d23d282761c419c3fe5166a8b5a9e90490b12a0904632ebc893bf77db1111c  /build/output/shimia32.efi
-68178ef56f5897b0d3e7e86c85d4c06276e3dbc2fe5adbe64f95f1675d57abe7  /build/output/shimx64.efi
-Removing intermediate container 2db9a7eb5982
- ---> 7cdac81ff97f
-Successfully built 7cdac81ff97f
+ ---> Running in 80a24f6b6509
+c02d776c948d50ed83b33e9a9e69be4b4c625eebbbd9d6e454eb2aa0ac2b920f  /build/output/shimia32.efi
+71d0f84a5875b88e7d18dd6d8f621677e7fc027fd2b112d5679b42d3c578cd60  /build/output/shimx64.efi
+Removing intermediate container 80a24f6b6509
+ ---> 51fdfaed82ef
+Successfully built 51fdfaed82ef
 Successfully tagged shim-builder:latest
