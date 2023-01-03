@@ -23,6 +23,10 @@ RUN mkdir build-x64 build-ia32
 RUN make -C build-x64 ARCH=x86_64 VENDOR_CERT_FILE=../blancco_sb_2022.cer DEFAULT_LOADER=\\\\grub.efi TOPDIR=.. -f ../Makefile
 RUN make -C build-ia32 ARCH=ia32 VENDOR_CERT_FILE=../blancco_sb_2022.cer DEFAULT_LOADER=\\\\grub.efi TOPDIR=.. -f ../Makefile
 
+# set NX compatibility flag
+RUN ./build-x64/post-process-pe -vvv -n build-x64/shimx64.efi
+RUN ./build-ia32/post-process-pe -vvv -n build-ia32/shimia32.efi
+
 # output
 RUN mkdir /build/output
 RUN cp build-x64/shimx64.efi /build/output

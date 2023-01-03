@@ -1,17 +1,17 @@
 docker build --no-cache -t shim-builder .
-Sending build context to Docker daemon  3.582MB
-Step 1/19 : FROM ubuntu:jammy
- ---> cdb68b455a14
-Step 2/19 : ARG SHIM_URL="https://github.com/rhboot/shim/releases/download/15.7/shim-15.7.tar.bz2"
- ---> Running in ae7daf3e50ed
-Removing intermediate container ae7daf3e50ed
- ---> 4c3804ba0149
-Step 3/19 : ARG SHIM_HASH="87cdeb190e5c7fe441769dde11a1b507ed7328e70a178cd9858c7ac7065cfade  shim-15.7.tar.bz2"
- ---> Running in d022fd4e12ab
-Removing intermediate container d022fd4e12ab
- ---> efa5b804d4c5
-Step 4/19 : RUN apt-get -qq update && DEBIAN_FRONTEND=noninteractive apt-get -qq --no-install-recommends install build-essential ca-certificates curl
- ---> Running in 7522a3cda370
+Sending build context to Docker daemon  4.459MB
+Step 1/21 : FROM ubuntu:jammy
+ ---> 6b7dfa7e8fdb
+Step 2/21 : ARG SHIM_URL="https://github.com/rhboot/shim/releases/download/15.7/shim-15.7.tar.bz2"
+ ---> Running in 819c2b42548d
+Removing intermediate container 819c2b42548d
+ ---> 5700f7958c73
+Step 3/21 : ARG SHIM_HASH="87cdeb190e5c7fe441769dde11a1b507ed7328e70a178cd9858c7ac7065cfade  shim-15.7.tar.bz2"
+ ---> Running in 140fe9e324a6
+Removing intermediate container 140fe9e324a6
+ ---> 56ae2ec33cdf
+Step 4/21 : RUN apt-get -qq update && DEBIAN_FRONTEND=noninteractive apt-get -qq --no-install-recommends install build-essential ca-certificates curl
+ ---> Running in 8d29b5825916
 [91mdebconf: delaying package configuration, since apt-utils is not installed
 [0mSelecting previously unselected package perl-modules-5.34.
 (Reading database ... (Reading database ... 5%(Reading database ... 10%(Reading database ... 15%(Reading database ... 20%(Reading database ... 25%(Reading database ... 30%(Reading database ... 35%(Reading database ... 40%(Reading database ... 45%(Reading database ... 50%(Reading database ... 55%(Reading database ... 60%(Reading database ... 65%(Reading database ... 70%(Reading database ... 75%(Reading database ... 80%(Reading database ... 85%(Reading database ... 90%(Reading database ... 95%(Reading database ... 100%(Reading database ... 4395 files and directories currently installed.)
@@ -33,8 +33,8 @@ Selecting previously unselected package openssl.
 Preparing to unpack .../05-openssl_3.0.2-0ubuntu1.7_amd64.deb ...
 Unpacking openssl (3.0.2-0ubuntu1.7) ...
 Selecting previously unselected package ca-certificates.
-Preparing to unpack .../06-ca-certificates_20211016_all.deb ...
-Unpacking ca-certificates (20211016) ...
+Preparing to unpack .../06-ca-certificates_20211016ubuntu0.22.04.1_all.deb ...
+Unpacking ca-certificates (20211016ubuntu0.22.04.1) ...
 Selecting previously unselected package libnghttp2-14:amd64.
 Preparing to unpack .../07-libnghttp2-14_1.43.0-1build3_amd64.deb ...
 Unpacking libnghttp2-14:amd64 (1.43.0-1build3) ...
@@ -45,29 +45,29 @@ Selecting previously unselected package xz-utils.
 Preparing to unpack .../09-xz-utils_5.2.5-2ubuntu1_amd64.deb ...
 Unpacking xz-utils (5.2.5-2ubuntu1) ...
 Selecting previously unselected package binutils-common:amd64.
-Preparing to unpack .../10-binutils-common_2.38-4ubuntu2_amd64.deb ...
-Unpacking binutils-common:amd64 (2.38-4ubuntu2) ...
+Preparing to unpack .../10-binutils-common_2.38-4ubuntu2.1_amd64.deb ...
+Unpacking binutils-common:amd64 (2.38-4ubuntu2.1) ...
 Selecting previously unselected package libbinutils:amd64.
-Preparing to unpack .../11-libbinutils_2.38-4ubuntu2_amd64.deb ...
-Unpacking libbinutils:amd64 (2.38-4ubuntu2) ...
+Preparing to unpack .../11-libbinutils_2.38-4ubuntu2.1_amd64.deb ...
+Unpacking libbinutils:amd64 (2.38-4ubuntu2.1) ...
 Selecting previously unselected package libctf-nobfd0:amd64.
-Preparing to unpack .../12-libctf-nobfd0_2.38-4ubuntu2_amd64.deb ...
-Unpacking libctf-nobfd0:amd64 (2.38-4ubuntu2) ...
+Preparing to unpack .../12-libctf-nobfd0_2.38-4ubuntu2.1_amd64.deb ...
+Unpacking libctf-nobfd0:amd64 (2.38-4ubuntu2.1) ...
 Selecting previously unselected package libctf0:amd64.
-Preparing to unpack .../13-libctf0_2.38-4ubuntu2_amd64.deb ...
-Unpacking libctf0:amd64 (2.38-4ubuntu2) ...
+Preparing to unpack .../13-libctf0_2.38-4ubuntu2.1_amd64.deb ...
+Unpacking libctf0:amd64 (2.38-4ubuntu2.1) ...
 Selecting previously unselected package binutils-x86-64-linux-gnu.
-Preparing to unpack .../14-binutils-x86-64-linux-gnu_2.38-4ubuntu2_amd64.deb ...
-Unpacking binutils-x86-64-linux-gnu (2.38-4ubuntu2) ...
+Preparing to unpack .../14-binutils-x86-64-linux-gnu_2.38-4ubuntu2.1_amd64.deb ...
+Unpacking binutils-x86-64-linux-gnu (2.38-4ubuntu2.1) ...
 Selecting previously unselected package binutils.
-Preparing to unpack .../15-binutils_2.38-4ubuntu2_amd64.deb ...
-Unpacking binutils (2.38-4ubuntu2) ...
+Preparing to unpack .../15-binutils_2.38-4ubuntu2.1_amd64.deb ...
+Unpacking binutils (2.38-4ubuntu2.1) ...
 Selecting previously unselected package libc-dev-bin.
 Preparing to unpack .../16-libc-dev-bin_2.35-0ubuntu3.1_amd64.deb ...
 Unpacking libc-dev-bin (2.35-0ubuntu3.1) ...
 Selecting previously unselected package linux-libc-dev:amd64.
-Preparing to unpack .../17-linux-libc-dev_5.15.0-53.59_amd64.deb ...
-Unpacking linux-libc-dev:amd64 (5.15.0-53.59) ...
+Preparing to unpack .../17-linux-libc-dev_5.15.0-56.62_amd64.deb ...
+Unpacking linux-libc-dev:amd64 (5.15.0-56.62) ...
 Selecting previously unselected package libcrypt-dev:amd64.
 Preparing to unpack .../18-libcrypt-dev_1%3a4.4.27-1_amd64.deb ...
 Unpacking libcrypt-dev:amd64 (1:4.4.27-1) ...
@@ -195,10 +195,10 @@ Setting up gcc-11-base:amd64 (11.3.0-1ubuntu1~22.04) ...
 Setting up lto-disabled-list (24) ...
 Setting up libpsl5:amd64 (0.21.0-1.2build2) ...
 Setting up libbrotli1:amd64 (1.0.9-2build6) ...
-Setting up binutils-common:amd64 (2.38-4ubuntu2) ...
+Setting up binutils-common:amd64 (2.38-4ubuntu2.1) ...
 Setting up libnghttp2-14:amd64 (1.43.0-1build3) ...
-Setting up linux-libc-dev:amd64 (5.15.0-53.59) ...
-Setting up libctf-nobfd0:amd64 (2.38-4ubuntu2) ...
+Setting up linux-libc-dev:amd64 (5.15.0-56.62) ...
+Setting up libctf-nobfd0:amd64 (2.38-4ubuntu2.1) ...
 Setting up libgomp1:amd64 (12.1.0-2ubuntu1~22.04) ...
 Setting up perl-modules-5.34 (5.34.0-3ubuntu1.1) ...
 Setting up bzip2 (1.0.8-5build1) ...
@@ -230,7 +230,7 @@ Setting up libssh-4:amd64 (0.9.6-2build1) ...
 Setting up libubsan1:amd64 (12.1.0-2ubuntu1~22.04) ...
 Setting up libnsl-dev:amd64 (1.3.0-2build2) ...
 Setting up libcrypt-dev:amd64 (1:4.4.27-1) ...
-Setting up libbinutils:amd64 (2.38-4ubuntu2) ...
+Setting up libbinutils:amd64 (2.38-4ubuntu2.1) ...
 Setting up libisl23:amd64 (0.24-2build1) ...
 Setting up libc-dev-bin (2.35-0ubuntu3.1) ...
 Setting up openssl (3.0.2-0ubuntu1.7) ...
@@ -239,21 +239,21 @@ Setting up liblsan0:amd64 (12.1.0-2ubuntu1~22.04) ...
 Setting up libitm1:amd64 (12.1.0-2ubuntu1~22.04) ...
 Setting up libgdbm6:amd64 (1.23-1) ...
 Setting up libtsan0:amd64 (11.3.0-1ubuntu1~22.04) ...
-Setting up libctf0:amd64 (2.38-4ubuntu2) ...
+Setting up libctf0:amd64 (2.38-4ubuntu2.1) ...
 Setting up cpp-11 (11.3.0-1ubuntu1~22.04) ...
 Setting up libldap-2.5-0:amd64 (2.5.13+dfsg-0ubuntu0.22.04.1) ...
-Setting up ca-certificates (20211016) ...
+Setting up ca-certificates (20211016ubuntu0.22.04.1) ...
 Updating certificates in /etc/ssl/certs...
-127 added, 0 removed; done.
+124 added, 0 removed; done.
 Setting up libgdbm-compat4:amd64 (1.23-1) ...
 Setting up libgcc-11-dev:amd64 (11.3.0-1ubuntu1~22.04) ...
 Setting up cpp (4:11.2.0-1ubuntu1) ...
 Setting up libcurl4:amd64 (7.81.0-1ubuntu1.6) ...
 Setting up libc6-dev:amd64 (2.35-0ubuntu3.1) ...
 Setting up curl (7.81.0-1ubuntu1.6) ...
-Setting up binutils-x86-64-linux-gnu (2.38-4ubuntu2) ...
+Setting up binutils-x86-64-linux-gnu (2.38-4ubuntu2.1) ...
 Setting up libperl5.34:amd64 (5.34.0-3ubuntu1.1) ...
-Setting up binutils (2.38-4ubuntu2) ...
+Setting up binutils (2.38-4ubuntu2.1) ...
 Setting up perl (5.34.0-3ubuntu1.1) ...
 Setting up libdpkg-perl (1.21.1ubuntu2.1) ...
 Setting up libstdc++-11-dev:amd64 (11.3.0-1ubuntu1~22.04) ...
@@ -266,28 +266,28 @@ update-alternatives: using /usr/bin/g++ to provide /usr/bin/c++ (c++) in auto mo
 update-alternatives: warning: skip creation of /usr/share/man/man1/c++.1.gz because associated file /usr/share/man/man1/g++.1.gz (of link group c++) doesn't exist
 Setting up build-essential (12.9ubuntu3) ...
 Processing triggers for libc-bin (2.35-0ubuntu3.1) ...
-Processing triggers for ca-certificates (20211016) ...
+Processing triggers for ca-certificates (20211016ubuntu0.22.04.1) ...
 Updating certificates in /etc/ssl/certs...
 0 added, 0 removed; done.
 Running hooks in /etc/ca-certificates/update.d...
 done.
-Removing intermediate container 7522a3cda370
- ---> 6e10b430893f
-Step 5/19 : WORKDIR /build
- ---> Running in 75184dae43fa
-Removing intermediate container 75184dae43fa
- ---> 6159e8e71feb
-Step 6/19 : RUN curl --silent --location --remote-name ${SHIM_URL}
- ---> Running in 80bf498eaed4
-Removing intermediate container 80bf498eaed4
- ---> 50b221912338
-Step 7/19 : RUN echo "${SHIM_HASH}" | sha256sum --check
- ---> Running in 032aace1950f
+Removing intermediate container 8d29b5825916
+ ---> 4adae1096d61
+Step 5/21 : WORKDIR /build
+ ---> Running in 74e7551caad7
+Removing intermediate container 74e7551caad7
+ ---> 48f27c43ccb5
+Step 6/21 : RUN curl --silent --location --remote-name ${SHIM_URL}
+ ---> Running in 698c7b7364c8
+Removing intermediate container 698c7b7364c8
+ ---> 624b968c22bf
+Step 7/21 : RUN echo "${SHIM_HASH}" | sha256sum --check
+ ---> Running in dc2477ad0a5e
 shim-15.7.tar.bz2: OK
-Removing intermediate container 032aace1950f
- ---> 8875d7d1810e
-Step 8/19 : RUN tar -jxvpf $(basename ${SHIM_URL}) && rm $(basename ${SHIM_URL})
- ---> Running in 48b90fd4c5d7
+Removing intermediate container dc2477ad0a5e
+ ---> a4c2e92c59c7
+Step 8/21 : RUN tar -jxvpf $(basename ${SHIM_URL}) && rm $(basename ${SHIM_URL})
+ ---> Running in 1aa8b42cf552
 shim-15.7/
 shim-15.7/.clang-format
 shim-15.7/.github/
@@ -1364,22 +1364,22 @@ shim-15.7/testplan.txt
 shim-15.7/tpm.c
 shim-15.7/version.c.in
 shim-15.7/version.h
-Removing intermediate container 48b90fd4c5d7
- ---> 7b5c33a2cc26
-Step 9/19 : WORKDIR /build/shim-15.7
- ---> Running in b82ccd04a006
-Removing intermediate container b82ccd04a006
- ---> 80481f2b5950
-Step 10/19 : ADD blancco_sb_2022.cer .
- ---> e5516f1c2459
-Step 11/19 : ADD sbat.csv data/sbat.csv
- ---> f6fb39c43476
-Step 12/19 : RUN mkdir build-x64 build-ia32
- ---> Running in 2876a233e85e
-Removing intermediate container 2876a233e85e
- ---> e68d441c47da
-Step 13/19 : RUN make -C build-x64 ARCH=x86_64 VENDOR_CERT_FILE=../blancco_sb_2022.cer DEFAULT_LOADER=\\\\grub.efi TOPDIR=.. -f ../Makefile
- ---> Running in 32b324e7a729
+Removing intermediate container 1aa8b42cf552
+ ---> 38e5ae653baa
+Step 9/21 : WORKDIR /build/shim-15.7
+ ---> Running in 862ef31e3cc3
+Removing intermediate container 862ef31e3cc3
+ ---> 36868bf4e385
+Step 10/21 : ADD blancco_sb_2022.cer .
+ ---> 30ca9e3ff1a6
+Step 11/21 : ADD sbat.csv data/sbat.csv
+ ---> 83865ad67b6b
+Step 12/21 : RUN mkdir build-x64 build-ia32
+ ---> Running in f072cf7a018f
+Removing intermediate container f072cf7a018f
+ ---> 3cf0669237e0
+Step 13/21 : RUN make -C build-x64 ARCH=x86_64 VENDOR_CERT_FILE=../blancco_sb_2022.cer DEFAULT_LOADER=\\\\grub.efi TOPDIR=.. -f ../Makefile
+ ---> Running in 407c08694512
 make: Entering directory '/build/shim-15.7/build-x64'
 sed	-e "s,@@VERSION@@,15.7," \
 	-e "s,@@UNAME@@,Linux x86_64 x86_64 x86_64 GNU/Linux," \
@@ -2005,10 +2005,10 @@ objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	--target efi-app-x86_64 fbx64.so fbx64.efi
 ./post-process-pe -vv fbx64.efi
 make: Leaving directory '/build/shim-15.7/build-x64'
-Removing intermediate container 32b324e7a729
- ---> 93bf596e7348
-Step 14/19 : RUN make -C build-ia32 ARCH=ia32 VENDOR_CERT_FILE=../blancco_sb_2022.cer DEFAULT_LOADER=\\\\grub.efi TOPDIR=.. -f ../Makefile
- ---> Running in af3ff15a7681
+Removing intermediate container 407c08694512
+ ---> f400c5cab32e
+Step 14/21 : RUN make -C build-ia32 ARCH=ia32 VENDOR_CERT_FILE=../blancco_sb_2022.cer DEFAULT_LOADER=\\\\grub.efi TOPDIR=.. -f ../Makefile
+ ---> Running in e691df3729eb
 make: Entering directory '/build/shim-15.7/build-ia32'
 sed	-e "s,@@VERSION@@,15.7," \
 	-e "s,@@UNAME@@,Linux x86_64 x86_64 x86_64 GNU/Linux," \
@@ -2635,22 +2635,50 @@ objcopy -D -j .text -j .sdata -j .data -j .data.ident \
 	--target efi-app-ia32 fbia32.so fbia32.efi
 ./post-process-pe -vv fbia32.efi
 make: Leaving directory '/build/shim-15.7/build-ia32'
-Removing intermediate container af3ff15a7681
- ---> f30a5995498f
-Step 15/19 : RUN mkdir /build/output
- ---> Running in 2f7fe79ae6dc
-Removing intermediate container 2f7fe79ae6dc
- ---> a75f6ddf7d37
-Step 16/19 : RUN cp build-x64/shimx64.efi /build/output
- ---> Running in c8885ba0a00d
-Removing intermediate container c8885ba0a00d
- ---> cf1155612cf4
-Step 17/19 : RUN cp build-ia32/shimia32.efi /build/output
- ---> Running in 739a4701f3d3
-Removing intermediate container 739a4701f3d3
- ---> 2c2d2beabb7c
-Step 18/19 : RUN objdump -j .sbat -s /build/output/*
- ---> Running in c3452550e762
+Removing intermediate container e691df3729eb
+ ---> abca31a2ed8f
+Step 15/21 : RUN ./build-x64/post-process-pe -vvv -n build-x64/shimx64.efi
+ ---> Running in 2a3cd159f0bb
+load_pe():130: datasize:949572 sizeof(PEHdr->Pe32):248
+load_pe():136: DOSHdr->e_magic:0x5a4d EFI_IMAGE_DOS_SIGNATURE:0x5a4d
+load_pe():144: DOSHdr->e_lfanew:128 datasize:949572
+load_pe():151: PE signature:0x4550 EFI_IMAGE_NT_SIGNATURE:0x4550
+load_pe():157: image is 64bit
+load_pe():191: Number of RVAs:16 EFI_IMAGE_NUMBER_OF_DIRECTORY_ENTRIES:16
+set_dll_characteristics():354: Updating DLL Characteristics from 0x0000 to 0x0100
+fix_checksum():399: old checksum was 0x000efc20
+fix_checksum():406: checksum = 0x00007fdc + 0x000e7d44 = 0x000efd20
+fix_checksum():412: Updating checksum from 0x000efc20 to 0x000efd20
+Removing intermediate container 2a3cd159f0bb
+ ---> f0a87b97207c
+Step 16/21 : RUN ./build-ia32/post-process-pe -vvv -n build-ia32/shimia32.efi
+ ---> Running in 8e1d151b08f9
+load_pe():130: datasize:743221 sizeof(PEHdr->Pe32):248
+load_pe():136: DOSHdr->e_magic:0x5a4d EFI_IMAGE_DOS_SIGNATURE:0x5a4d
+load_pe():144: DOSHdr->e_lfanew:128 datasize:743221
+load_pe():151: PE signature:0x4550 EFI_IMAGE_NT_SIGNATURE:0x4550
+load_pe():168: image is 32bit
+load_pe():191: Number of RVAs:16 EFI_IMAGE_NUMBER_OF_DIRECTORY_ENTRIES:16
+set_dll_characteristics():354: Updating DLL Characteristics from 0x0000 to 0x0100
+fix_checksum():399: old checksum was 0x000c17f9
+fix_checksum():406: checksum = 0x0000c1c4 + 0x000b5735 = 0x000c18f9
+fix_checksum():412: Updating checksum from 0x000c17f9 to 0x000c18f9
+Removing intermediate container 8e1d151b08f9
+ ---> 3b7f9ffbca90
+Step 17/21 : RUN mkdir /build/output
+ ---> Running in ffce165f52f1
+Removing intermediate container ffce165f52f1
+ ---> c90a57d114c8
+Step 18/21 : RUN cp build-x64/shimx64.efi /build/output
+ ---> Running in 5cb4717c9172
+Removing intermediate container 5cb4717c9172
+ ---> 1b178fe08831
+Step 19/21 : RUN cp build-ia32/shimia32.efi /build/output
+ ---> Running in 7447029aae4b
+Removing intermediate container 7447029aae4b
+ ---> 256209f75592
+Step 20/21 : RUN objdump -j .sbat -s /build/output/*
+ ---> Running in c990bfb70c9e
 
 /build/output/shimia32.efi:     file format pei-i386
 
@@ -2685,13 +2713,13 @@ Contents of section .sbat:
  d50a0 6c6f6779 2047726f 75702c73 68696d2c  logy Group,shim,
  d50b0 31352e37 2c6d6169 6c3a7365 63757269  15.7,mail:securi
  d50c0 74794062 6c616e63 636f2e63 6f6d      ty@blancco.com  
-Removing intermediate container c3452550e762
- ---> 27b0eaf1a974
-Step 19/19 : RUN sha256sum /build/output/*
- ---> Running in 821a68dbf5ef
-e05c3f17e352aaece292e16b0310b31ad3fac2e4826e793292108ecb3100ed45  /build/output/shimia32.efi
-629e23a2c9ee6be276f6da49dcbbb9ad86adda42866aee31da99eaaa007b5aaa  /build/output/shimx64.efi
-Removing intermediate container 821a68dbf5ef
- ---> 4c577563a131
-Successfully built 4c577563a131
+Removing intermediate container c990bfb70c9e
+ ---> 738ded02e9c3
+Step 21/21 : RUN sha256sum /build/output/*
+ ---> Running in b76c6fd924d9
+4e77679d52d358d3ad441a37adf9584fdc6cd0b699ed77026f5af2f9b457b20a  /build/output/shimia32.efi
+92dac8731ba43b206c3f6f3b331748ff26f93a3dc10e62ae3be35e40c4753452  /build/output/shimx64.efi
+Removing intermediate container b76c6fd924d9
+ ---> 219d2cdc1ed6
+Successfully built 219d2cdc1ed6
 Successfully tagged shim-builder:latest
