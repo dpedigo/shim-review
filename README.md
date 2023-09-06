@@ -183,7 +183,7 @@ Previously accepted submission: https://github.com/rhboot/shim-review/issues/9
 *******************************************************************************
 ```
 4e77679d52d358d3ad441a37adf9584fdc6cd0b699ed77026f5af2f9b457b20a  shimia32.efi
-92dac8731ba43b206c3f6f3b331748ff26f93a3dc10e62ae3be35e40c4753452  shimx64.efi
+28b4d0c57f95b0b3d6d27d97a31a20e634ff7175012f732f26232f0b71190749  shimx64.efi
 ```
 
 *******************************************************************************
@@ -251,7 +251,7 @@ No GRUB enforces lockdown using the shim protocol.
 *******************************************************************************
 ### What kernel are you using? Which patches does it includes to enforce Secure Boot?
 *******************************************************************************
-Linux kernel 5.15.59 with the lockdown patches.
+Linux kernel 6.2.16 with the lockdown patches.
 
 *******************************************************************************
 ### Add any additional information you think we may need to validate this shim.
