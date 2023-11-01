@@ -146,6 +146,12 @@ Yes
 Yes. Patches mainly focus on addressing issues we've found in drivers with a variety of storage controllers. Hardware quirks.
 
 *******************************************************************************
+### Do you use an ephemeral key for signing kernel modules?
+### If not, please describe how you ensure that one kernel build does not load modules built for another kernel.
+*******************************************************************************
+Yes, we do use ephemeral keys for each kernel build.
+
+*******************************************************************************
 ### If you use vendor_db functionality of providing multiple certificates and/or hashes please briefly describe your certificate setup.
 ### If there are allow-listed hashes please provide exact binaries for which hashes are created via file sharing service, available in public with anonymous access for verification.
 *******************************************************************************
