@@ -122,7 +122,7 @@ Downstream RHEL/Fedora/Debian/Canonical-like implementation
 Yes
 
 *******************************************************************************
-### If these fixes have been applied, have you set the global SBAT generation on your GRUB binary to 3?
+### If these fixes have been applied, have you set the global SBAT generation on your GRUB binary to 4?
 *******************************************************************************
 Yes
 
@@ -217,8 +217,9 @@ shim.blancco,1,Blancco Technology Group,shim,15.7,mail:security@blancco.com
 GRUB2:
 ```
 sbat,1,SBAT Version,sbat,1,https://github.com/rhboot/shim/blob/main/SBAT.md
-grub,3,Free Software Foundation,grub,2.06,https//www.gnu.org/software/grub/
-grub.blancco,2,Blancco Technology Group,grub2,2.06-26fafec8,mail:security@blancco.com
+grub,4,Free Software Foundation,grub,2.06,https//www.gnu.org/software/grub/
+grub.rh,2,Red Hat,grub2,2.06-69d8c2e,mailto:secalert@redhat.com
+grub.blancco,3,Blancco Technology Group,grub2,2.06-23b44b7c,mail:security@blancco.com
 ```
 
 *******************************************************************************
@@ -232,7 +233,7 @@ all_video boot chain configfile echo fat font gfxmenu gfxterm gfxterm_background
 ### What is the origin and full version number of your bootloader (GRUB or other)?
 *******************************************************************************
 Origin: https://github.com/rhboot/grub2.git
-Version: 2.06, Commit: b77167c4
+Version: 2.06, Commit: 69d8c2e
 
 *******************************************************************************
 ### If your SHIM launches any other components, please provide further details on what is launched.
